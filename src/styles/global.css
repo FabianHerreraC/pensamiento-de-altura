@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background-color: #F9F9F7;
+    color: #111111;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Space Mono', 'Courier New', monospace;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: #CBFF4D;
+    color: #111111;
+  }
+}
+
+@layer components {
+  /* Tag / badge */
+  .tag {
+    @apply font-mono text-[10px] px-2.5 py-1 uppercase tracking-cap inline-block;
+  }
+
+  .tag-accent {
+    @apply tag bg-accent text-ink;
+  }
+
+  .tag-outline {
+    @apply tag border border-border text-muted;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-card border border-border p-8;
+  }
+
+  .card-outline {
+    @apply bg-bg border border-border p-8;
+  }
+
+  /* Accordion */
+  .accordion-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .accordion-content.open {
+    grid-template-rows: 1fr;
+  }
+
+  .accordion-content > div {
+    overflow: hidden;
+  }
+
+  .accordion-trigger[aria-expanded="true"] .acc-icon {
+    transform: rotate(45deg);
+  }
+
+  .acc-icon {
+    transition: transform 0.3s ease;
+    display: inline-block;
+  }
+
+  /* Fade-in on scroll */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-in-delay-1 { transition-delay: 0.08s; }
+  .fade-in-delay-2 { transition-delay: 0.16s; }
+  .fade-in-delay-3 { transition-delay: 0.24s; }
+  .fade-in-delay-4 { transition-delay: 0.32s; }
+  .fade-in-delay-5 { transition-delay: 0.40s; }
+
+  /* Archetype card hover */
+  .arch-card {
+    @apply card-outline transition-all duration-200;
+  }
+
+  .arch-card:hover {
+    @apply border-ink;
+    background-color: #CBFF4D10;
+  }
+
+  /* Horizon item */
+  .h-item {
+    border-top: 1px solid #DDDDD9;
+    transition: background-color 0.2s ease;
+  }
+
+  .h-item:hover {
+    background-color: #CBFF4D22;
+  }
+}

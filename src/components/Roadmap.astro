@@ -1,0 +1,116 @@
+---
+const stages = [
+  {
+    number: '01',
+    label: 'El usuario básico',
+    intro: 'La IA aparece como una herramienta más en la caja. Se usa puntualmente: redactar un correo, resumir un texto, generar una imagen. Cada uso es un evento aislado.',
+    body: 'Esta etapa no es errónea, es inicial. El problema no es estar aquí, es no saber que hay más allá. La mayoría de profesionales lleva dos años en esta etapa y cree que está aprovechando la IA cuando apenas la está encendiendo.',
+    featured: false,
+  },
+  {
+    number: '02',
+    label: 'El automatizador',
+    intro: 'La IA pasa de uso puntual a uso sistemático. Se integran flujos, se automatizan procesos completos. Hay sensación de progreso real. Métricas de eficiencia. Los primeros agentes.',
+    body: 'Esta es la etapa donde se queda atrapada la mayoría de las organizaciones. Y es engañosa, porque entrega resultados visibles. El problema es que reduce la IA a una lógica industrial: hacer lo mismo, más rápido, más barato. Es donde la IA sirve, pero no transforma.',
+    featured: false,
+  },
+  {
+    number: '03',
+    label: 'La cognición aumentada',
+    intro: 'La IA deja de ser herramienta y se vuelve interlocutor cognitivo. La pregunta ya no es qué tareas automatizar sino qué formas de pensar se vuelven posibles que antes no lo eran.',
+    body: 'Esta etapa no se alcanza con más herramientas. Se alcanza con un rediseño deliberado del modo en que se piensa. Aquí el valor ya no está en la eficiencia sino en el acceso a formas de comprensión antes cerradas. Aquí están los que van a definir las próximas décadas de su campo.',
+    featured: true,
+  },
+];
+---
+
+<section id="el-mapa" class="border-b border-border">
+  <div class="max-w-wide mx-auto px-6 md:px-10 py-20 md:py-28">
+
+    <!-- Section header -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-14 fade-in">
+      <div class="md:col-span-2">
+        <span class="tag-outline">El mapa</span>
+      </div>
+      <p class="md:col-span-7 font-mono text-xs leading-6 text-muted">
+        Hay tres formas distintas de relacionarse con la inteligencia artificial.
+        Cada una entrega resultados distintos, y la mayoría de profesionales y
+        organizaciones quedan atrapados en la segunda sin saber que existe una
+        tercera.
+      </p>
+    </div>
+
+    <!-- Three-column stage grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
+      {stages.map((stage, i) => (
+        <div
+          class={`fade-in fade-in-delay-${i + 1} flex flex-col border border-border p-7 ${stage.featured ? 'bg-ink text-bg' : 'bg-card'}`}
+        >
+          <!-- Card top row -->
+          <div class="flex items-start justify-between mb-8">
+            <span
+              class={`font-mono text-[10px] px-2.5 py-1 uppercase tracking-cap ${stage.featured ? 'bg-accent text-ink' : 'border border-border text-muted'}`}
+            >
+              {stage.number}
+            </span>
+            <button
+              class="accordion-trigger font-mono text-base leading-none"
+              aria-expanded="false"
+              aria-controls={`stage-body-${i}`}
+              aria-label={`Expandir ${stage.label}`}
+            >
+              <span class={`acc-icon ${stage.featured ? 'text-bg' : 'text-muted'}`}>+</span>
+            </button>
+          </div>
+
+          <!-- Stage label -->
+          <h3
+            class={`font-mono font-bold text-sm mb-5 ${stage.featured ? 'text-bg' : 'text-ink'}`}
+          >
+            {stage.label}
+          </h3>
+
+          <!-- Intro always visible -->
+          <p
+            class={`font-mono text-xs leading-6 flex-1 ${stage.featured ? 'text-bg/70' : 'text-muted'}`}
+          >
+            {stage.intro}
+          </p>
+
+          <!-- Accordion body -->
+          <div class="accordion-content" id={`stage-body-${i}`} role="region">
+            <div>
+              <p
+                class={`font-mono text-xs leading-6 mt-5 pt-5 border-t ${stage.featured ? 'text-bg/60 border-bg/10' : 'text-muted border-border'}`}
+              >
+                {stage.body}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Closing question -->
+    <div class="grid grid-cols-1 md:grid-cols-12 fade-in">
+      <p class="md:col-span-10 md:col-start-2 font-mono font-bold text-xl md:text-3xl text-center italic text-ink">
+        ¿En qué etapa estás tú?
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.accordion-trigger').forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const expanded = trigger.getAttribute('aria-expanded') === 'true';
+      const id = trigger.getAttribute('aria-controls');
+      const content = id ? document.getElementById(id) : null;
+      trigger.setAttribute('aria-expanded', String(!expanded));
+      content?.classList.toggle('open', !expanded);
+      const icon = trigger.querySelector('.acc-icon');
+      if (icon) icon.textContent = !expanded ? '−' : '+';
+    });
+  });
+</script>

@@ -1,0 +1,50 @@
+---
+const horizons = [
+  'Sostener una práctica profesional que opera más allá de las horas del día sin perder calidad.',
+  'Acceder a patrones de información que ninguna mente sola puede ver, y decidir desde ahí.',
+  'Convertir décadas de archivo institucional en interlocutor activo del presente.',
+  'Formar a equipos jóvenes en el criterio de los mejores sin depender de su presencia constante.',
+  'Tomar decisiones estratégicas más profundas que las que caben en una sola mente.',
+  'Diferenciarse en mercados saturados desde una posición que la mayoría no ve.',
+  'Construir una arquitectura cognitiva propia que se vuelve activo institucional, no solo herramienta.',
+  'Definir el lenguaje y los marcos con los que su campo profesional va a operar en la próxima década.',
+];
+---
+
+<section id="horizontes" class="border-b border-border bg-card">
+  <div class="max-w-wide mx-auto px-6 md:px-10 py-20 md:py-28">
+
+    <!-- Section header -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mb-12 fade-in">
+      <div class="md:col-span-2">
+        <span class="tag-outline">Horizontes</span>
+      </div>
+      <div class="md:col-span-6">
+        <h2 class="font-mono font-bold text-2xl md:text-4xl leading-tight text-ink mb-3">
+          Lo que se vuelve posible
+        </h2>
+        <p class="font-mono text-xs leading-6 text-muted">
+          Llegar a la cognición aumentada no significa adoptar más tecnología.
+          Significa abrir formas de práctica que antes estaban cerradas.
+        </p>
+      </div>
+    </div>
+
+    <!-- Horizons grid: 2 columns of 4 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-0 border-t border-l border-border">
+      {horizons.map((h, i) => (
+        <div
+          class={`h-item border-b border-r border-border px-6 py-6 fade-in fade-in-delay-${Math.min(i + 1, 5)}`}
+        >
+          <div class="flex items-start gap-4">
+            <span class="font-mono text-[10px] text-accent shrink-0 pt-0.5 font-bold">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <p class="font-mono text-xs leading-6 text-muted">{h}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

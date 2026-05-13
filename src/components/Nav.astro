@@ -1,0 +1,81 @@
+---
+const navItems = [
+  { href: '#el-mapa', label: 'El mapa' },
+  { href: '#cognicion', label: 'Cognición aumentada' },
+  { href: '#arquetipos', label: 'Arquetipos' },
+  { href: '#horizontes', label: 'Horizontes' },
+  { href: '#el-como', label: 'El cómo' },
+  { href: '#conversemos', label: 'Conversemos' },
+];
+---
+
+<header class="sticky top-0 z-50 bg-bg/95 backdrop-blur-sm border-b border-border">
+  <div class="max-w-wide mx-auto px-6 md:px-10">
+
+    <!-- Metadata row -->
+    <div class="flex items-center justify-between py-2.5 border-b border-border/60">
+      <span class="font-mono text-[11px] text-ink tracking-wide">
+        así funciona una consultoría
+      </span>
+      <span class="font-mono text-[11px] text-muted">Fabián 2026</span>
+    </div>
+
+    <!-- Anchor nav row -->
+    <nav
+      class="flex items-center gap-1 py-2 overflow-x-auto"
+      style="scrollbar-width:none"
+      aria-label="Secciones"
+    >
+      {
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            class="nav-link font-mono text-[10px] uppercase tracking-cap text-muted hover:text-ink whitespace-nowrap px-3 py-1.5 transition-colors duration-150 hover:bg-card"
+            data-nav-link
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>
+
+<style>
+  header ::-webkit-scrollbar { display: none; }
+
+  .nav-link.active {
+    color: #111111;
+    background-color: #CBFF4D;
+  }
+</style>
+
+<script>
+  const sections = [
+    'el-mapa',
+    'cognicion',
+    'arquetipos',
+    'horizontes',
+    'el-como',
+    'conversemos',
+  ];
+  const links = document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]');
+
+  const obs = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          links.forEach((l) =>
+            l.classList.toggle('active', l.getAttribute('href') === `#${e.target.id}`)
+          );
+        }
+      });
+    },
+    { threshold: 0.25, rootMargin: '-10% 0px -55% 0px' }
+  );
+
+  sections.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) obs.observe(el);
+  });
+</script>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <!-- Lime background -->
+  <rect width="32" height="32" fill="#CBFF4D"/>
+
+  <!-- Monospace-style "P" letterform in ink -->
+  <!-- Vertical stem -->
+  <rect x="8" y="7" width="3" height="18" fill="#111111"/>
+  <!-- Top horizontal -->
+  <rect x="8" y="7" width="14" height="3" fill="#111111"/>
+  <!-- Right side of bowl -->
+  <rect x="19" y="7" width="3" height="9" fill="#111111"/>
+  <!-- Mid crossbar (closes the bowl) -->
+  <rect x="8" y="13" width="14" height="3" fill="#111111"/>
+
+  <!-- Bottom-right accent square in ink -->
+  <rect x="20" y="22" width="5" height="5" fill="#111111"/>
+</svg>

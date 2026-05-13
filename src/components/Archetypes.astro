@@ -1,0 +1,71 @@
+---
+const archetypes = [
+  {
+    id: '01',
+    title: 'El experto multiplicado',
+    body: 'Un profesional con décadas de experiencia cuya práctica está limitada por las horas que tiene un día. En la cognición aumentada, su pensamiento se extiende en un sistema que opera con su criterio, atiende mientras él duerme, forma a otros con su voz. No reemplaza al experto: lo multiplica.',
+  },
+  {
+    id: '02',
+    title: 'El archivo vivo',
+    body: 'Una organización con décadas de historia documentada cuyo conocimiento institucional muere cada vez que alguien se jubila. En la cognición aumentada, el archivo deja de ser depósito y se vuelve interlocutor. Las decisiones nuevas se toman con la memoria completa de la organización activa.',
+  },
+  {
+    id: '03',
+    title: 'El pensamiento profundo sostenido',
+    body: 'Un equipo que toma decisiones estratégicas en talleres de tres días con post-its. Las decisiones se sienten participativas pero son superficiales. En la cognición aumentada, el equipo delibera en procesos que sostienen profundidad analítica que ninguna mente individual podría cargar.',
+  },
+  {
+    id: '04',
+    title: 'La cartografía cognitiva',
+    body: 'Una institución que opera con un paradigma cognitivo viejo sin saberlo. En la cognición aumentada, su corpus de documentos se vuelve espejo: revela patrones invisibles, creencias dominantes, decisiones que se posponen sistemáticamente, líneas emergentes que nadie ha nombrado.',
+  },
+  {
+    id: '05',
+    title: 'El oficio externalizado',
+    body: 'Un creador, un decisor, un maestro cuyo criterio es tácito. Decide bien sin saber del todo por qué. En la cognición aumentada, ese criterio se reconstruye, se nombra, se hace explícito. Se vuelve transmisible sin perder su singularidad.',
+  },
+];
+---
+
+<section id="arquetipos" class="border-b border-border">
+  <div class="max-w-wide mx-auto px-6 md:px-10 py-20 md:py-28">
+
+    <!-- Section header -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mb-12 fade-in">
+      <div class="md:col-span-2">
+        <span class="tag-outline">Aterrizaje</span>
+      </div>
+      <div class="md:col-span-10">
+        <h2 class="font-mono font-bold text-2xl md:text-4xl leading-tight text-ink mb-3">
+          Cómo se ve en la práctica
+        </h2>
+        <p class="font-mono text-xs leading-6 text-muted max-w-[55ch]">
+          Arquetipos de lo que la cognición aumentada hace posible. No son casos
+          cerrados ni servicios listos para comprar: son imágenes de territorios
+          que se abren.
+        </p>
+      </div>
+    </div>
+
+    <!-- Cards grid: 2 + 2 + 1 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {archetypes.map((arc, i) => (
+        <article
+          class={`arch-card fade-in fade-in-delay-${Math.min(i + 1, 5)}`}
+        >
+          <div class="flex items-center justify-between mb-6">
+            <span class="tag-outline">{arc.id}</span>
+          </div>
+          <h3 class="font-mono font-bold text-sm text-ink mb-4 leading-snug">
+            {arc.title}
+          </h3>
+          <p class="font-mono text-xs leading-6 text-muted">
+            {arc.body}
+          </p>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>

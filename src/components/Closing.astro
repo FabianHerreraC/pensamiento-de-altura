@@ -1,0 +1,81 @@
+---
+const email = 'herreracjf@gmail.com';
+const linkedin = 'https://www.linkedin.com/in/fabian-herrera-4253654a/';
+---
+
+<section id="conversemos" class="bg-ink">
+  <!-- Metadata bar -->
+  <div class="border-b border-bg/10">
+    <div class="max-w-wide mx-auto px-6 md:px-10 py-3 flex items-center justify-between">
+      <span class="font-mono text-[11px] text-bg/40 tracking-wide">Pensamiento de Altura</span>
+      <span class="font-mono text-[11px] text-bg/40">Conversación abierta</span>
+    </div>
+  </div>
+
+  <!-- Closing content -->
+  <div class="max-w-wide mx-auto px-6 md:px-10 py-28 md:py-40">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
+
+      <div class="md:col-span-12 fade-in">
+        <span class="font-mono text-[10px] px-2.5 py-1 uppercase tracking-cap border border-bg/20 text-bg/40">
+          Cierre
+        </span>
+      </div>
+
+      <p
+        class="md:col-span-8 fade-in fade-in-delay-1 font-mono text-base md:text-xl leading-8 text-bg/80"
+      >
+        Si estás leyendo esto y reconociste algo de lo que aquí se nombra,
+        probablemente ya estás entrando a la tercera etapa, aunque no la hayas
+        nombrado así. Si quieres conversar sobre cómo se vería para ti o para
+        tu organización, podemos hablar.
+      </p>
+
+      <div class="md:col-span-4 flex items-start pt-2 fade-in fade-in-delay-2">
+        <a
+          href={`mailto:${email}`}
+          class="font-mono font-bold text-sm px-8 py-4 bg-accent text-ink hover:bg-white transition-colors duration-200 tracking-wide inline-block"
+        >
+          Conversemos. →
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-ink border-t border-bg/10">
+  <div class="max-w-wide mx-auto px-6 md:px-10 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+      <div class="space-y-1.5">
+        <a
+          href={`mailto:${email}`}
+          class="font-mono text-[11px] text-bg/35 hover:text-bg/60 transition-colors block tracking-wide"
+        >
+          {email}
+        </a>
+        <a
+          href={linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-mono text-[11px] text-bg/35 hover:text-bg/60 transition-colors block tracking-wide"
+        >
+          LinkedIn
+        </a>
+      </div>
+
+      <div class="text-center">
+        <p class="font-mono text-[11px] text-bg/20 tracking-wide">
+          Pensamiento de Altura
+        </p>
+      </div>
+
+      <div class="text-right">
+        <p class="font-mono text-[11px] text-bg/20 tracking-wide">
+          &copy; {new Date().getFullYear()} Fabián
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
